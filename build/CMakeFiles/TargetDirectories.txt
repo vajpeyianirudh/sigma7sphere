@@ -1,0 +1,3 @@
+C:/Haptic projects/sphere/build/CMakeFiles/SigmaTest.dir
+C:/Haptic projects/sphere/build/CMakeFiles/ALL_BUILD.dir
+C:/Haptic projects/sphere/build/CMakeFiles/ZERO_CHECK.dir
