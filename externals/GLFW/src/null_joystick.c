@@ -1,7 +1,7 @@
 //========================================================================
-// GLFW 3.4 Cocoa - www.glfw.org
+// GLFW 3.4 - www.glfw.org
 //------------------------------------------------------------------------
-// Copyright (c) 2006-2017 Camilla Löwy <elmindreda@glfw.org>
+// Copyright (c) 2016-2017 Camilla Löwy <elmindreda@glfw.org>
 //
 // This software is provided 'as-is', without any express or implied
 // warranty. In no event will the authors be held liable for any damages
@@ -24,26 +24,33 @@
 //
 //========================================================================
 
-#include <IOKit/IOKitLib.h>
-#include <IOKit/IOCFPlugIn.h>
-#include <IOKit/hid/IOHIDKeys.h>
+#include "internal.h"
 
-#define GLFW_COCOA_JOYSTICK_STATE         _GLFWjoystickNS ns;
-#define GLFW_COCOA_LIBRARY_JOYSTICK_STATE
 
-// Cocoa-specific per-joystick data
-//
-typedef struct _GLFWjoystickNS
+//////////////////////////////////////////////////////////////////////////
+//////                       GLFW platform API                      //////
+//////////////////////////////////////////////////////////////////////////
+
+GLFWbool _glfwInitJoysticksNull(void)
 {
-    IOHIDDeviceRef      device;
-    CFMutableArrayRef   axes;
-    CFMutableArrayRef   buttons;
-    CFMutableArrayRef   hats;
-} _GLFWjoystickNS;
+    return GLFW_TRUE;
+}
 
-GLFWbool _glfwInitJoysticksCocoa(void);
-void _glfwTerminateJoysticksCocoa(void);
-GLFWbool _glfwPollJoystickCocoa(_GLFWjoystick* js, int mode);
-const char* _glfwGetMappingNameCocoa(void);
-void _glfwUpdateGamepadGUIDCocoa(char* guid);
+void _glfwTerminateJoysticksNull(void)
+{
+}
+
+GLFWbool _glfwPollJoystickNull(_GLFWjoystick* js, int mode)
+{
+    return GLFW_FALSE;
+}
+
+const char* _glfwGetMappingNameNull(void)
+{
+    return "";
+}
+
+void _glfwUpdateGamepadGUIDNull(char* guid)
+{
+}
 

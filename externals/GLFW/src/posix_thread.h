@@ -1,6 +1,7 @@
 //========================================================================
-// GLFW 3.4 Cocoa - www.glfw.org
+// GLFW 3.4 POSIX - www.glfw.org
 //------------------------------------------------------------------------
+// Copyright (c) 2002-2006 Marcus Geelnard
 // Copyright (c) 2006-2017 Camilla Löwy <elmindreda@glfw.org>
 //
 // This software is provided 'as-is', without any express or implied
@@ -24,26 +25,25 @@
 //
 //========================================================================
 
-#include <IOKit/IOKitLib.h>
-#include <IOKit/IOCFPlugIn.h>
-#include <IOKit/hid/IOHIDKeys.h>
+#include <pthread.h>
 
-#define GLFW_COCOA_JOYSTICK_STATE         _GLFWjoystickNS ns;
-#define GLFW_COCOA_LIBRARY_JOYSTICK_STATE
+#define GLFW_POSIX_TLS_STATE    _GLFWtlsPOSIX   posix;
+#define GLFW_POSIX_MUTEX_STATE  _GLFWmutexPOSIX posix;
 
-// Cocoa-specific per-joystick data
+
+// POSIX-specific thread local storage data
 //
-typedef struct _GLFWjoystickNS
+typedef struct _GLFWtlsPOSIX
 {
-    IOHIDDeviceRef      device;
-    CFMutableArrayRef   axes;
-    CFMutableArrayRef   buttons;
-    CFMutableArrayRef   hats;
-} _GLFWjoystickNS;
+    GLFWbool        allocated;
+    pthread_key_t   key;
+} _GLFWtlsPOSIX;
 
-GLFWbool _glfwInitJoysticksCocoa(void);
-void _glfwTerminateJoysticksCocoa(void);
-GLFWbool _glfwPollJoystickCocoa(_GLFWjoystick* js, int mode);
-const char* _glfwGetMappingNameCocoa(void);
-void _glfwUpdateGamepadGUIDCocoa(char* guid);
+// POSIX-specific mutex data
+//
+typedef struct _GLFWmutexPOSIX
+{
+    GLFWbool        allocated;
+    pthread_mutex_t handle;
+} _GLFWmutexPOSIX;
 
