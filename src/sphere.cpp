@@ -41,7 +41,7 @@
 #include "dhdc.h"
 
 // GLFW library header
-#include <GLFW/include/GLFW/glfw3.h>
+#include <GLFW/glfw3.h>
 
 // Project headers
 #include "CMatrixGL.h"
