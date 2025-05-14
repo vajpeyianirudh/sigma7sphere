@@ -11,7 +11,7 @@
 #define EXAMPLES_GLFW_SPHERE_CMATRIXGL_H
 
 // Eigen library headers
-#include "eigen34/Eigen/Eigen"
+#include "Eigen/Eigen"
 
 ////////////////////////////////////////////////////////////////////////////////
 ///

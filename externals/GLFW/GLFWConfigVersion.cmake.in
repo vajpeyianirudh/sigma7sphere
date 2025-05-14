@@ -1,0 +1,24 @@
+################################################################################
+#
+#  Copyright (C) 2001-2024 Force Dimension, Switzerland.
+#  All Rights Reserved.
+#
+#  $PROJECT $VERSION
+#  $DESCRIPTION
+#
+#  THIS FILE CAN NOT BE COPIED AND/OR DISTRIBUTED WITHOUT EXPRESS
+#  PERMISSION FROM FORCE DIMENSION.
+#
+################################################################################
+
+set(PACKAGE_VERSION "@PROJECT_VERSION@")
+ 
+# check whether the requested PACKAGE_FIND_VERSION is compatible
+if("${PACKAGE_VERSION}" VERSION_LESS "${PACKAGE_FIND_VERSION}")
+  set(PACKAGE_VERSION_COMPATIBLE FALSE)
+else()
+  set(PACKAGE_VERSION_COMPATIBLE TRUE)
+  if ("${PACKAGE_VERSION}" VERSION_EQUAL "${PACKAGE_FIND_VERSION}")
+    set(PACKAGE_VERSION_EXACT TRUE)
+  endif()
+endif()

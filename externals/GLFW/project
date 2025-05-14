@@ -1,0 +1,19 @@
+################################################################################
+#
+#  Copyright (C) 2001-2024 Force Dimension, Switzerland.
+#  All Rights Reserved.
+#
+#  $PROJECT $VERSION
+#  $DESCRIPTION
+#
+#  THIS FILE CAN NOT BE COPIED AND/OR DISTRIBUTED WITHOUT EXPRESS
+#  PERMISSION FROM FORCE DIMENSION.
+#
+################################################################################
+
+PROJECT=glfw
+DESCRIPTION=www.glfw.org
+MAJOR=3
+MINOR=4
+PATCH=0
+PRERELEASE=

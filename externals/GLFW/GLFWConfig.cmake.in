@@ -1,0 +1,22 @@
+################################################################################
+#
+#  Copyright (C) 2001-2024 Force Dimension, Switzerland.
+#  All Rights Reserved.
+#
+#  $PROJECT $VERSION
+#  $DESCRIPTION
+#
+#  THIS FILE CAN NOT BE COPIED AND/OR DISTRIBUTED WITHOUT EXPRESS
+#  PERMISSION FROM FORCE DIMENSION.
+#
+################################################################################
+
+# Compute paths.
+get_filename_component(GLFW_CMAKE_DIR "${CMAKE_CURRENT_LIST_FILE}" PATH)
+set(GLFW_INCLUDE_DIRS "@CONF_INCLUDE_DIRS@")
+set(GLFW_LIBRARIES "@CONF_LIBRARIES@")
+ 
+# Library dependencies (contains definitions for IMPORTED targets)
+if(NOT TARGET glfw AND NOT GLFW_BINARY_DIR)
+  include("${GLFW_CMAKE_DIR}/GLFWTargets.cmake")
+endif()
